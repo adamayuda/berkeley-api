@@ -1,0 +1,11 @@
+node_modules/
+
+coverage
+firebase
+*.*
+!*.tsx
+!*.ts
+!*.js
+!*.json
+*.svg
+*.ttf
