@@ -1,10 +1,9 @@
-import { Router } from 'express';
-
-import { isAuth } from '../middlewares/isAuth';
+import { PostCreateOneDto, PostPatchOneDto } from '../dto/posts';
 import PostController from '../controllers/posts';
 import PostService from '../services/posts';
+import { Router } from 'express';
+import { isAuth } from '../middlewares/isAuth';
 import { validateDto } from '../middlewares/validateDto';
-import { PostCreateOneDto, PostPatchOneDto } from '../dto/posts';
 
 const route = Router();
 

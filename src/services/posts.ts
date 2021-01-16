@@ -24,11 +24,13 @@ export interface IPostService {
 }
 
 export default class PostService implements IPostService {
-  constructor() {}
-
   async getAll({ userId }: { userId: string }): Promise<IPost[]> {
     try {
-      return await Post.find({ user: userId });
+      return await Post.find({ user: userId }).populate({
+        path: 'user',
+        model: 'User',
+        select: 'username picture',
+      });
     } catch (e) {
       throw e;
     }
@@ -36,7 +38,11 @@ export default class PostService implements IPostService {
 
   async getOne({ id }: { id: string }): Promise<IPost> {
     try {
-      return await Post.findOne({ _id: id });
+      return await Post.findOne({ _id: id }).populate({
+        path: 'user',
+        model: 'User',
+        select: 'username picture',
+      });
     } catch (e) {
       throw e;
     }

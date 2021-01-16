@@ -1,8 +1,7 @@
 import { Router } from 'express';
-
-import { isAuth } from '../middlewares/isAuth';
 import UserController from '../controllers/users';
 import UserService from '../services/users';
+import { isAuth } from '../middlewares/isAuth';
 
 const route = Router();
 

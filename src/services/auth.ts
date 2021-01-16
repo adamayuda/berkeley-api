@@ -1,7 +1,6 @@
-import jwt from 'jsonwebtoken';
-
-import { config } from '../config';
 import User, { IUser } from '../models/User';
+import { config } from '../config';
+import jwt from 'jsonwebtoken';
 
 export interface IAuthService {
   login({
@@ -12,8 +11,6 @@ export interface IAuthService {
 }
 
 export default class AuthService implements IAuthService {
-  constructor() {}
-
   login = async ({
     username,
   }: {
@@ -21,7 +18,7 @@ export default class AuthService implements IAuthService {
   }): Promise<{ user: IUser; token: string }> => {
     try {
       const user: IUser | null = await User.findOne({ username }).select(
-        '_id username',
+        '_id username picture',
       );
 
       if (!user) {

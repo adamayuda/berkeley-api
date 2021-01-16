@@ -1,8 +1,7 @@
 import { Router } from 'express';
-
 import auth from './auth';
-import users from './users';
 import posts from './posts';
+import users from './users';
 
 export default () => {
   const app = Router();

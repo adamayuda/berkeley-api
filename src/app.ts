@@ -1,9 +1,9 @@
 import { config, generateConfig } from './config';
-import { connectDB } from './db';
 import bodyParser from 'body-parser';
+import { connectDB } from './db';
+import cors from 'cors';
 import express from 'express';
 import morgan from 'morgan';
-import cors from 'cors';
 
 import routes from './routes';
 

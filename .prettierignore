@@ -1,8 +1,15 @@
+.idea
 firebase
 node_modules/
 coverage
 dist
-firebase
 *.prettierignore
 *.tsbuildinfo
 
+.*
+*.lock
+
+*.log
+*.svg
+*.ico
+*.ttf

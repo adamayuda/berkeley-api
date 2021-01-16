@@ -1,13 +1,15 @@
 import User, { IUser } from '../models/User';
 
 export interface IUserService {
-  me({ uid }: { uid: string }): void;
+  me({ userId }: { userId: string }): void;
 }
 
 export default class UserService implements IUserService {
-  constructor() {}
-
-  me({ uid }: { uid: string }): void {
-    return;
+  async me({ userId }: { userId: string }): Promise<IUser> {
+    try {
+      return await User.findOne({ user: userId });
+    } catch (e) {
+      throw e;
+    }
   }
 }

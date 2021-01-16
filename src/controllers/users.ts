@@ -1,6 +1,4 @@
 import { Request, Response } from 'express';
-
-import { IUser } from '../models/User';
 import { IUserService } from '../services/users';
 
 export interface IUserController {

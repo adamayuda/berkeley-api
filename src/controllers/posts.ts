@@ -23,7 +23,6 @@ export default class PostController implements IPostController {
 
     try {
       const posts: IPost[] = await this.postService.getAll({ userId });
-      console.log(posts);
       return res.status(200).json(posts);
     } catch (e) {
       console.error(e);

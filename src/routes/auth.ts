@@ -1,9 +1,8 @@
-import { Router } from 'express';
-
 import AuthController from '../controllers/auth';
-import AuthService from '../services/auth';
-import { validateDto } from '../middlewares/validateDto';
 import { AuthLoginDto } from '../dto/auth';
+import AuthService from '../services/auth';
+import { Router } from 'express';
+import { validateDto } from '../middlewares/validateDto';
 
 const authService = new AuthService();
 const authController = new AuthController(authService);

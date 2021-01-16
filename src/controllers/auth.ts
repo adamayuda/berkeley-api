@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
-import { IUser } from '../models/User';
 import { IAuthService } from '../services/auth';
+import { IUser } from '../models/User';
 
 export interface IAuthController {
   login(req: Request, res: Response): Promise<Response>;
