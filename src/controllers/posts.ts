@@ -23,6 +23,7 @@ export default class PostController implements IPostController {
 
     try {
       const posts: IPost[] = await this.postService.getAll({ userId });
+      console.log(posts);
       return res.status(200).json(posts);
     } catch (e) {
       console.error(e);
@@ -44,12 +45,16 @@ export default class PostController implements IPostController {
 
   createOne = async (req: Request, res: Response): Promise<Response> => {
     const { _id } = req.user;
-    const { description }: { description: string } = req.body;
+    const {
+      description,
+      photo,
+    }: { description: string; photo: string } = req.body;
 
     try {
       const post: IPost = await this.postService.createOne({
         user: _id,
         description,
+        photo,
       });
       return res.status(200).json(post);
     } catch (e) {

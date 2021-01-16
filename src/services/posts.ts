@@ -6,9 +6,11 @@ export interface IPostService {
   createOne({
     user,
     description,
+    photo,
   }: {
     user: string;
     description: string;
+    photo?: string;
   }): Promise<IPost>;
   patchOne(
     id: string,
@@ -43,12 +45,14 @@ export default class PostService implements IPostService {
   async createOne({
     user,
     description,
+    photo,
   }: {
     user: string;
     description: string;
+    photo?: string;
   }): Promise<IPost> {
     try {
-      return await Post.create({ user, description });
+      return await Post.create({ user, description, photo });
     } catch (e) {
       throw e;
     }

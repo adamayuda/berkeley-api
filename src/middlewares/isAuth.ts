@@ -22,6 +22,7 @@ export const isAuth = (select: string) => {
 
     try {
       const bearer: string | undefined = authorization?.split(' ')[1];
+
       if (!bearer) return res.status(403).json({ message: 'Forbidden' });
 
       const token: any = jwt.verify(bearer, config.JWT_KEY);
@@ -29,6 +30,7 @@ export const isAuth = (select: string) => {
       const user: IUser | null = await User.findById(token._id)
         .select(select)
         .lean();
+
       if (!user) return res.status(401).json({ message: 'Disconnected' });
 
       req.user = user;
