@@ -1,4 +1,4 @@
-import User, { IUser } from '../models/User';
+import User, { IUser } from '../../models/User';
 
 export interface IUserService {
   me({ userId }: { userId: string }): void;

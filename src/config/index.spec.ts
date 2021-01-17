@@ -1,7 +1,12 @@
 import { config, generateConfig } from '.';
 
 let error = '';
-let parsed: { PORT?: string; PORTS?: string } = {
+let parsed: {
+  PORT?: string;
+  PORTS?: string;
+  JWT_KEY?: string;
+  MONGO_URI?: string;
+} = {
   PORTS: '3000',
 };
 
@@ -22,6 +27,8 @@ describe('generateConfig', () => {
       error = '';
       parsed = {
         PORT: '3000',
+        JWT_KEY: 'key',
+        MONGO_URI: 'mongo',
       };
     });
 
@@ -34,6 +41,8 @@ describe('generateConfig', () => {
     it('should throw an error', () => {
       parsed = {
         PORTS: '3000',
+        JWT_KEY: 'key',
+        MONGO_URI: 'mongo',
       };
       expect(() => generateConfig()).toThrow(
         '⚠️ "PORT" is required in .env file  ⚠️',
@@ -46,6 +55,8 @@ describe('generateConfig', () => {
       error = '';
       parsed = {
         PORT: '3000',
+        JWT_KEY: 'key',
+        MONGO_URI: 'mongo',
       };
     });
 
@@ -53,6 +64,8 @@ describe('generateConfig', () => {
       generateConfig();
       expect(config).toEqual({
         PORT: '3000',
+        JWT_KEY: 'key',
+        MONGO_URI: 'mongo',
       });
     });
 

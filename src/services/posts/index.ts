@@ -1,4 +1,4 @@
-import Post, { IPost } from '../models/Post';
+import Post, { IPost } from '../../models/Post';
 
 export interface IPostService {
   getAll({ userId }: { userId: string }): Promise<IPost[]>;

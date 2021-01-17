@@ -1,5 +1,5 @@
-import User, { IUser } from '../models/User';
-import { config } from '../config';
+import User, { IUser } from '../../models/User';
+import { config } from '../../config';
 import jwt from 'jsonwebtoken';
 
 export interface IAuthService {

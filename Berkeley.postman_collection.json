@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "e1ca6da5-5dd6-42aa-8482-4a5c82a6770c",
+		"name": "Berkeley",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/auth/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Token', () => {",
+							"    const jsonData = pm.response.json()",
+							"    pm.environment.set('token', jsonData.token)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"berkeley\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST_BERKELEY}}/auth/login",
+					"host": [
+						"{{HOST_BERKELEY}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Description post sadsa\",\n    \"photo\": \"https://images.unsplash.com/photo-1462349953611-c1e14d9899b3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=512&ixid=MXwxfDB8MXxyYW5kb218fHx8fHx8fA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=512\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST_BERKELEY}}/posts",
+					"host": [
+						"{{HOST_BERKELEY}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOST_BERKELEY}}/posts",
+					"host": [
+						"{{HOST_BERKELEY}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{HOST_BERKELEY}}/posts/6002c4d69ec50284e398b5d6",
+					"host": [
+						"{{HOST_BERKELEY}}"
+					],
+					"path": [
+						"posts",
+						"6002c4d69ec50284e398b5d6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Description post 2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST_BERKELEY}}/posts/6002c8fab6444d85e6af0474",
+					"host": [
+						"{{HOST_BERKELEY}}"
+					],
+					"path": [
+						"posts",
+						"6002c8fab6444d85e6af0474"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{HOST_BERKELEY}}/posts/6002c8fab6444d85e6af0474",
+					"host": [
+						"{{HOST_BERKELEY}}"
+					],
+					"path": [
+						"posts",
+						"6002c8fab6444d85e6af0474"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

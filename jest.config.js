@@ -7,7 +7,7 @@ module.exports = {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
   collectCoverageFrom: ['src/**/*.(t|j)s'],
-  coveragePathIgnorePatterns: ['src/app' + '' + '.ts'],
+  coveragePathIgnorePatterns: ['src/app.ts'],
   coverageDirectory: './coverage',
   testEnvironment: 'node',
 };
