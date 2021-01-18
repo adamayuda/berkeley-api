@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
-import { IPost } from '../models/Post';
-import { IPostService } from '../services/posts';
+import { IPost } from '../../models/Post';
+import { IPostService } from '../../services/posts';
 
 export interface IPostController {
   getAll(req: Request, res: Response): Promise<Response>;

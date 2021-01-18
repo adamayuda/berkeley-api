@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { IUserService } from '../services/users';
+import { IUserService } from '../../services/users';
 
 export interface IUserController {
   me(req: Request, res: Response): Promise<Response>;
